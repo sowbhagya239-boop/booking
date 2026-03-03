@@ -110,7 +110,7 @@ public class Hotel implements Serializable {
   }
 
   public void setDeleted(boolean deleted) {
-    this.deleted = deleted;
+    this.deleted = false;
   }
 
   @Override
@@ -197,7 +197,7 @@ public class Hotel implements Serializable {
     }
 
     public Builder setDeleted(boolean deleted) {
-      this.deleted = deleted;
+      this.deleted = false;
       return this;
     }
 
