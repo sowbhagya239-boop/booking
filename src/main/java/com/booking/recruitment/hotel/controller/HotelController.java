@@ -29,4 +29,13 @@ public class HotelController {
   public Hotel createHotel(@RequestBody Hotel hotel) {
     return hotelService.createNewHotel(hotel);
   }
+
+  @GetMapping("/{id}")
+  public ResponseEntity<Hotel> getHotel(@PathVariable Long id) {
+    Hotel hotel = hotelService.getHotelById(id);
+
+    if(hotel == null || hotel.isDeleted()) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+    return ResponseEntity.ok(hotel);
 }
