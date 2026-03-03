@@ -48,3 +48,11 @@ public class HotelController {
     }
     return ResponseEntity.ok(hotel);
   }
+   @GetMapping("/search/{cityId}")
+  public ResponseEntity<List<Hotel>> search(@PathVariable Long cityId, @RequestParam(required = false) String sortBy) {
+    if("distance".equalsIgnoreCase(sortBy)) {
+      List<Hotel> result = hotelService.findTop3ClosesHotels(cityId);
+      return ResponseEntity.ok(hotel); 
+    }
+    return ResponseEntity.badRequest().build();
+  }
