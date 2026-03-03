@@ -56,3 +56,4 @@ public class HotelController {
     }
     return ResponseEntity.badRequest().build();
   }
+}
