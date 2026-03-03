@@ -10,4 +10,10 @@ public interface HotelService {
   List<Hotel> getHotelsByCity(Long cityId);
 
   Hotel createNewHotel(Hotel hotel);
+
+  Hotel findById(Long id);
+
+  List<Hotel> findTop3ClosestHotel(Long cityId);
+
+  boolean deleteHotel(Long id);
 }
