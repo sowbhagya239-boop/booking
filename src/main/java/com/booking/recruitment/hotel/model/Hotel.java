@@ -21,6 +21,7 @@ public class Hotel implements Serializable {
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+  @JoinColumn(name = "city_id")
   private City city;
 
   private String address;
