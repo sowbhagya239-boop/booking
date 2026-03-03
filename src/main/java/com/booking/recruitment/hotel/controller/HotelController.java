@@ -39,3 +39,12 @@ public class HotelController {
     }
     return ResponseEntity.ok(hotel);
 }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> deleteHotel(@PathVariable Long id) {
+    boolean deleted = hotelService.deleteHotel(id);
+    if(!deleted) {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+    return ResponseEntity.ok(hotel);
+  }
